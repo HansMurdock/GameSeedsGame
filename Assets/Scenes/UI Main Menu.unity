@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 735419790}
   - component: {fileID: 735419789}
   - component: {fileID: 735419788}
+  - component: {fileID: 735419791}
   m_Layer: 5
   m_Name: ButtonpSetting
   m_TagString: Untagged
@@ -667,8 +668,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.87169814, g: 0.7918086, b: 0.26808822, a: 1}
+    m_PressedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -727,6 +728,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735419786}
   m_CullTransparentMesh: 1
+--- !u!114 &735419791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735419786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dae96b726368245acd557424aeb6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncyButton
+  hoverScaleMultiplier: 1.05
+  pressScaleMultiplier: 0.95
+  animationDuration: 0.1
 --- !u!1 &760157404
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,6 +988,7 @@ GameObject:
   - component: {fileID: 1148721639}
   - component: {fileID: 1148721638}
   - component: {fileID: 1148721637}
+  - component: {fileID: 1148721640}
   m_Layer: 5
   m_Name: ButtonpExit
   m_TagString: Untagged
@@ -1021,8 +1038,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.87169814, g: 0.7918086, b: 0.26808822, a: 1}
+    m_PressedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1093,6 +1110,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148721635}
   m_CullTransparentMesh: 1
+--- !u!114 &1148721640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148721635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dae96b726368245acd557424aeb6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncyButton
+  hoverScaleMultiplier: 1.05
+  pressScaleMultiplier: 0.95
+  animationDuration: 0.1
 --- !u!1 &1179383160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1761,7 @@ GameObject:
   - component: {fileID: 1587711576}
   - component: {fileID: 1587711575}
   - component: {fileID: 1587711574}
+  - component: {fileID: 1587711577}
   m_Layer: 5
   m_Name: ButtonpPlay
   m_TagString: Untagged
@@ -1778,8 +1811,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 0.87169814, g: 0.7918086, b: 0.26808822, a: 1}
+    m_PressedColor: {r: 0.34901962, g: 0.34901962, b: 0.34901962, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1850,6 +1883,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587711572}
   m_CullTransparentMesh: 1
+--- !u!114 &1587711577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587711572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dae96b726368245acd557424aeb6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BouncyButton
+  hoverScaleMultiplier: 1.05
+  pressScaleMultiplier: 0.95
+  animationDuration: 0.1
 --- !u!1 &1694746506
 GameObject:
   m_ObjectHideFlags: 0
