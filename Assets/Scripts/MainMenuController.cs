@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -8,40 +9,69 @@ public class MainMenuController : MonoBehaviour
     public GameObject panelLoading2;
     public GameObject panelMainMenu;
 
-    [Header("Settings")]
-    public float initialBlackScreenTime = 2f; // Waktu layar hitam pertama (detik)
+    [Header("Transition Settings")]
+    public float initialBlackScreenTime = 2f;
+    public float fadeDuration = 1f;
+
+    [Header("Scene Settings")]
+    public string gameplaySceneName = "NamaSceneGameUtamaKamu";
 
     private bool canTapToStart = false;
+    private CanvasGroup loading2CanvasGroup;
 
     void Start()
     {
-        // Pastikan kondisi awal saat game dibuka
         panelLoading1.SetActive(true);
         panelLoading2.SetActive(true);
         panelMainMenu.SetActive(true);
 
-        // Mulai proses loading
+        loading2CanvasGroup = panelLoading2.GetComponent<CanvasGroup>();
+        if (loading2CanvasGroup == null)
+        {
+            loading2CanvasGroup = panelLoading2.AddComponent<CanvasGroup>();
+        }
+
         StartCoroutine(LoadingSequence());
     }
 
     IEnumerator LoadingSequence()
     {
-        // 1. Tunggu beberapa detik di layar hitam (Loading 1)
         yield return new WaitForSeconds(initialBlackScreenTime);
-
-        // 2. Matikan layar hitam pertama, munculkan layar "Tap to Start" (Loading 2)
         panelLoading1.SetActive(false);
         canTapToStart = true;
     }
 
     void Update()
     {
-        // 3. Jika sudah di layar "Tap to Start" dan player klik/tap layar
         if (canTapToStart && Input.GetMouseButtonDown(0))
         {
-            // Matikan layar loading 2, otomatis Main Menu akan terlihat
-            panelLoading2.SetActive(false);
-            canTapToStart = false; // Matikan input ini agar tidak berulang
+            canTapToStart = false;
+            StartCoroutine(FadeOutLoading2());
         }
+    }
+
+    IEnumerator FadeOutLoading2()
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            loading2CanvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            yield return null;
+        }
+
+        panelLoading2.SetActive(false);
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(gameplaySceneName);
+    }
+
+    public void QuitGame()
+    {
+        // Memakai "UnityEngine." di depannya agar tidak bentrok dengan library lain
+        UnityEngine.Debug.Log("Game ditutup!");
+        UnityEngine.Application.Quit();
     }
 }
