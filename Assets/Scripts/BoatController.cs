@@ -19,7 +19,7 @@ public class BoatController : BaseVehicle
         pos.y = waterLevel;
         rb.position = pos;
 
-        if (!isOccupied) return;
+        if (!isOccupied || controlsFrozen) return;
 
         float move = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");

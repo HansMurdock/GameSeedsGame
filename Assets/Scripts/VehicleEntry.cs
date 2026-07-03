@@ -57,14 +57,13 @@ public class VehicleEntry : MonoBehaviour
     {
         isInVehicle = true;
         currentVehicle = vehicle;
-        vehicle.SetOccupied(true);
 
         playerMovement.enabled = false;
         charController.enabled = false;
         GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         playerCamera.gameObject.SetActive(false);
-        if (vehicle.vehicleCamera != null)
-            vehicle.vehicleCamera.gameObject.SetActive(true);
+
+        vehicle.SetOccupied(true); // ini yang nentuin: langsung nyalain vehicleCamera, atau reveal dulu
     }
 
     void Exit()

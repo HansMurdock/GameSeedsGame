@@ -39,6 +39,7 @@ public class PlaneController : BaseVehicle
             rb.MoveRotation(Quaternion.Lerp(rb.rotation, neutralRot, Time.fixedDeltaTime * rotationSmooth));
             return;
         }
+        if (controlsFrozen) return;
 
         float move = Input.GetAxis("Vertical");
         float turn = Input.GetAxis("Horizontal");
