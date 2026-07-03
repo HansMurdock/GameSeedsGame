@@ -4324,7 +4324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11a6754436066b45ad008bb6f63c2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleSFX
-  engineLoop: {fileID: 8300000, guid: 2a30d61edad6313469694ed26fb91ac3, type: 3}
+  engineLoop: {fileID: 8300000, guid: 0c4a8a0c21b14044b8a5de6cb11f3146, type: 3}
   volume: 0.4
   idlePitch: 0.7
   maxPitch: 1.6
