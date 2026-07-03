@@ -79,6 +79,25 @@ public class BaseVehicle : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sembunyikan RintanganGroup dengan jeda (detik).
+    /// Dipanggil ToyMinigameManager saat minigame selesai.
+    /// </summary>
+    public void HideObstacles(float delay)
+    {
+        StartCoroutine(HideObstaclesRoutine(delay));
+    }
+
+    private IEnumerator HideObstaclesRoutine(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (obstacleLink != null && obstacleLink.RintanganGroup != null)
+            obstacleLink.RintanganGroup.SetActive(false);
+
+        obstacleRevealed = false; // reveal bisa jalan lagi di minigame berikutnya
+    }
+
     public void ShowPrompt(bool show)
     {
         if (enterPrompt != null)

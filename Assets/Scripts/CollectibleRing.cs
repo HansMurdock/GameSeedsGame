@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CollectibleRing : MonoBehaviour
 {
+    // Ditembakkan tiap kali ring mana pun keambil. ToyMinigameManager subscribe ke sini.
+    public static event System.Action RingCollected;
+
     [Header("Scoring")]
     [SerializeField] private int scoreValue = 1;
 
@@ -21,6 +24,8 @@ public class CollectibleRing : MonoBehaviour
         {
             ScoreManager.Instance.AddScore(scoreValue);
         }
+
+        RingCollected?.Invoke();
 
         gameObject.SetActive(false);
     }

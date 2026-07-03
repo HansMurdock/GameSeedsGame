@@ -13,4 +13,15 @@ public class VehicleObstacleLink : MonoBehaviour
     public float SpawnDelay => spawnDelay;
     public float RevealDuration => revealDuration;
     public GameObject SpawnEffectPrefab => spawnEffectPrefab;
+
+    /// <summary>
+    /// Dipanggil ToyMinigameManager saat kendaraan di-spawn dari prefab.
+    /// Prefab tidak bisa menyimpan referensi object scene, jadi rintangan
+    /// dan reveal camera milik ToySpot disuntik lewat sini.
+    /// </summary>
+    public void Inject(GameObject group, Camera cam)
+    {
+        rintanganGroup = group;
+        revealCamera = cam;
+    }
 }

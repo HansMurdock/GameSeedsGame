@@ -49,6 +49,19 @@ public class VehicleEntry : MonoBehaviour
         }
     }
 
+    /// <summary>True kalau player lagi di dalam kendaraan.</summary>
+    public bool IsInVehicle => isInVehicle;
+
+    /// <summary>
+    /// Dipanggil ToyMinigameManager untuk memaksa player keluar dari kendaraan
+    /// (misalnya saat target ring tercapai). Aman dipanggil kapan pun.
+    /// </summary>
+    public void ForceExit()
+    {
+        if (isInVehicle && currentVehicle != null)
+            Exit();
+    }
+
     void Enter(BaseVehicle vehicle)
     {
         isInVehicle = true;
