@@ -11,6 +11,10 @@ public class CollectibleRing : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private Vector3 rotationSpeed = new Vector3(0f, 90f, 0f);
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip collectClip;
+    [SerializeField] private float sfxVolume = 0.6f;
+
     void Update()
     {
         transform.Rotate(rotationSpeed * Time.deltaTime);
@@ -26,6 +30,11 @@ public class CollectibleRing : MonoBehaviour
         }
 
         RingCollected?.Invoke();
+
+        // SFX koin — pakai PlayClipAtPoint biar suaranya tetap bunyi
+        // walau ring-nya langsung di-SetActive(false)
+        if (collectClip != null)
+            AudioSource.PlayClipAtPoint(collectClip, transform.position, sfxVolume);
 
         gameObject.SetActive(false);
     }

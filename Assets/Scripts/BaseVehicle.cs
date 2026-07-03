@@ -20,6 +20,9 @@ public class BaseVehicle : MonoBehaviour
     private VehicleObstacleLink obstacleLink;
     private bool obstacleRevealed = false;
 
+    /// <summary>Dipakai VehicleSFX (dan sistem lain) buat tau kendaraan lagi dinaiki atau enggak.</summary>
+    public bool IsOccupied => isOccupied;
+
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();

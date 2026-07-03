@@ -335,6 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 0, z: 90}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &45923973
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,11 +550,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &49384963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2449816033429575773, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
-  m_PrefabInstance: {fileID: 1249209878}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &49470690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5546747315237514756, guid: c1eeab1e01d8aeb4381fe4cd6cef60d6, type: 3}
@@ -792,6 +789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &74875368 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6882519739213071715, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
@@ -1809,6 +1808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &222710894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0aabbe52124610f4bb9797f1dac0e333, type: 3}
@@ -2352,6 +2353,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &295558303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,6 +2786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &318805704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4045,6 +4050,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &412903060 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6919683763462532184, guid: 2cffc1766dd3ecf41b711ecffd5edf29, type: 3}
@@ -4260,10 +4267,10 @@ MonoBehaviour:
   moveSpeed: 2
   turnSpeed: 80
   wheels:
-  - {fileID: 1767532560}
-  - {fileID: 49384963}
-  - {fileID: 972931122}
-  - {fileID: 776732846}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   wheelRadius: 0.1108508
   wheelSpinAxis: {x: 0, y: -1, z: 0}
 --- !u!64 &454316079
@@ -4305,6 +4312,23 @@ MonoBehaviour:
   spawnDelay: 1
   revealDuration: 2.5
   spawnEffectPrefab: {fileID: 4328567187604827391, guid: 2169c6dd570665647aefc17435959964, type: 3}
+--- !u!114 &454316081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454316073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11a6754436066b45ad008bb6f63c2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleSFX
+  engineLoop: {fileID: 8300000, guid: 2a30d61edad6313469694ed26fb91ac3, type: 3}
+  volume: 0.4
+  idlePitch: 0.7
+  maxPitch: 1.6
+  maxSpeed: 15
 --- !u!1 &458921111
 GameObject:
   m_ObjectHideFlags: 0
@@ -4598,6 +4622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &526734100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5626728101663605411, guid: 2cffc1766dd3ecf41b711ecffd5edf29, type: 3}
@@ -4639,6 +4665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1001 &527751929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4736,6 +4764,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c1eeab1e01d8aeb4381fe4cd6cef60d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1830897421}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c1eeab1e01d8aeb4381fe4cd6cef60d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830897422}
     - targetCorrespondingSourceObject: {fileID: -516098083770646512, guid: c1eeab1e01d8aeb4381fe4cd6cef60d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326403}
@@ -6348,6 +6379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1001 &771727412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6405,11 +6438,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e366a08350fa7e4bba16b5381bb8636, type: 3}
---- !u!4 &776732846 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3252168452187236749, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
-  m_PrefabInstance: {fileID: 1249209878}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &786440672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6582,6 +6610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 0, z: 90}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!64 &810498051
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7509,6 +7539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!64 &873568791
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7629,6 +7661,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 0, z: 90}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &885142379 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -466329591000292508, guid: c1eeab1e01d8aeb4381fe4cd6cef60d6, type: 3}
@@ -8383,11 +8417,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8016272931164072059, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
---- !u!4 &972931122 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5872916710765044079, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
-  m_PrefabInstance: {fileID: 1249209878}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &986342499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7989381457481483157, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
@@ -9113,6 +9142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 0, z: 90}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &1091818259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 479709463609312740, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
@@ -9499,6 +9530,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &1125017028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1731201317362380963, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
@@ -10573,6 +10606,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 454316080}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 454316081}
   m_SourcePrefab: {fileID: 100100000, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
 --- !u!1 &1251165167
 GameObject:
@@ -11495,6 +11531,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &1419745475 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5623042771898989000, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
@@ -11563,6 +11601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 0, z: 90}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &1442235581
 GameObject:
   m_ObjectHideFlags: 0
@@ -12461,6 +12501,23 @@ MonoBehaviour:
   spawnDelay: 1
   revealDuration: 3.5
   spawnEffectPrefab: {fileID: 4328567187604827391, guid: 2169c6dd570665647aefc17435959964, type: 3}
+--- !u!114 &1522211708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522211702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11a6754436066b45ad008bb6f63c2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleSFX
+  engineLoop: {fileID: 8300000, guid: f88189166b46d74448f35bd0d806ae5b, type: 3}
+  volume: 0.4
+  idlePitch: 0.7
+  maxPitch: 1.6
+  maxSpeed: 15
 --- !u!1 &1539161291 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2764512629625626004, guid: b0c2de393692f174b994ea94f7927c19, type: 3}
@@ -13354,11 +13411,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760034810}
   m_CullTransparentMesh: 1
---- !u!4 &1767532560 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7524754303621174274, guid: 017c11372c733844fb25e0b110d6e021, type: 3}
-  m_PrefabInstance: {fileID: 1249209878}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1788163337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8991685587958795123, guid: e941a8b25b8db004a8063e7df5541782, type: 3}
@@ -13605,6 +13657,23 @@ MonoBehaviour:
   spawnDelay: 1
   revealDuration: 3.5
   spawnEffectPrefab: {fileID: 4328567187604827391, guid: 2169c6dd570665647aefc17435959964, type: 3}
+--- !u!114 &1830897422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830897416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11a6754436066b45ad008bb6f63c2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VehicleSFX
+  engineLoop: {fileID: 8300000, guid: 187b34416a018f44386f7fc4fc5e7c0f, type: 3}
+  volume: 0.4
+  idlePitch: 0.7
+  maxPitch: 1.6
+  maxSpeed: 15
 --- !u!1 &1833795226
 GameObject:
   m_ObjectHideFlags: 0
@@ -14397,6 +14466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &1942368642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e3e605c57509f4499b51526a793ed4f, type: 3}
@@ -14664,6 +14735,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7006eae2d6adf024bb08c587ce1fd751, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1522211707}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7006eae2d6adf024bb08c587ce1fd751, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1522211708}
   m_SourcePrefab: {fileID: 100100000, guid: 7006eae2d6adf024bb08c587ce1fd751, type: 3}
 --- !u!1 &1966659146 stripped
 GameObject:
@@ -14908,7 +14982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7e3e605c57509f4499b51526a793ed4f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1300264252759386080, guid: 7e3e605c57509f4499b51526a793ed4f, type: 3}
       propertyPath: m_LocalScale.x
@@ -15777,6 +15851,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectibleRing
   scoreValue: 1
   rotationSpeed: {x: 0, y: 90, z: 0}
+  collectClip: {fileID: 8300000, guid: 3164522156d499247aeab1376ce57d0b, type: 3}
+  sfxVolume: 0.2
 --- !u!1 &2122329247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1502877291743220047, guid: b0c2de393692f174b994ea94f7927c19, type: 3}
