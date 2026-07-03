@@ -56,7 +56,13 @@ public class BouncyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             StopCoroutine(scaleCoroutine);
         }
-        scaleCoroutine = StartCoroutine(ScaleOverTime(targetScale));
+
+        // MODIFIKASI 1: Cek apakah GameObject aktif sebelum menjalankan Coroutine.
+        // Ini menghindari error ketika tombol tiba-tiba disembunyikan.
+        if (gameObject.activeInHierarchy)
+        {
+            scaleCoroutine = StartCoroutine(ScaleOverTime(targetScale));
+        }
     }
 
     // Coroutine untuk mengubah ukuran secara halus (Lerp)
@@ -67,7 +73,10 @@ public class BouncyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         while (elapsedTime < animationDuration)
         {
-            elapsedTime += Time.deltaTime;
+            // MODIFIKASI 2: Ubah Time.deltaTime menjadi Time.unscaledDeltaTime
+            // Ini membuat animasi mengabaikan Time.timeScale = 0 (game saat pause)
+            elapsedTime += Time.unscaledDeltaTime;
+
             transform.localScale = Vector3.Lerp(startScale, targetScale, elapsedTime / animationDuration);
             yield return null;
         }
