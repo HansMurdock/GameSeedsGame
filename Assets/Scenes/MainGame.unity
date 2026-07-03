@@ -16619,7 +16619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf96c0347106eb47927aff132ca3dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChapterEnding
-  minigamesNeeded: 1
+  ringsNeeded: 2
   fragmentMesh: {fileID: 2080466588}
   darkBackdrop: {fileID: 1065835843}
   fragmentTitleText: {fileID: 1220927358}

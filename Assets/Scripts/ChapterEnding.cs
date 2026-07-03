@@ -2,20 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using System.Collections.Generic;
 
 public class ChapterEnding : MonoBehaviour
 {
     public static ChapterEnding Instance { get; private set; }
 
     [Header("Trigger")]
-    public int minigamesNeeded = 3;
+    [Tooltip("Total ring yang harus dikumpulkan sebelum ending. Isi -1 untuk auto-hitung semua ring di scene.")]
+    public int ringsNeeded = -1;
 
     [Header("Fragment Reveal")]
-    public GameObject fragmentMesh;        // mesh foto (child kamera, di depan muka)
-    public GameObject darkBackdrop;        // Panel UI gelap semi-transparan
-    public GameObject fragmentTitleText;   // tulisan "PHOTO FRAGMENT FOUND"
-    public float fragmentSpinSpeed = 30f;  // muter pelan biar hidup
+    public GameObject fragmentMesh;
+    public GameObject darkBackdrop;
+    public GameObject fragmentTitleText;
+    public float fragmentSpinSpeed = 30f;
     public float fragmentShowDuration = 3.5f;
 
     [Header("Fade & Closing")]
@@ -25,9 +25,8 @@ public class ChapterEnding : MonoBehaviour
 
     [Header("Dialog")]
     [TextArea] public string fragmentLine = "Paper...? Looks like a torn photo... why does my chest feel tight? It's just paper.";
-    [TextArea] public string closingLine = "It doesn't end here. There are still other memories waiting to be discovered...";
+    [TextArea] public string closingLine = "...I have to find the rest.";
 
-    private readonly HashSet<ToySpot> done = new HashSet<ToySpot>();
     private bool endingStarted = false;
     private bool spinning = false;
 
@@ -39,6 +38,14 @@ public class ChapterEnding : MonoBehaviour
 
     void Start()
     {
+        // auto-hitung semua ring di scene (termasuk yang nonaktif) kalau ringsNeeded < 0
+        if (ringsNeeded < 0)
+        {
+            var rings = FindObjectsByType<CollectibleRing>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            ringsNeeded = rings.Length;
+            Debug.Log("ChapterEnding: total ring di scene = " + ringsNeeded);
+        }
+
         if (fragmentMesh != null) fragmentMesh.SetActive(false);
         if (darkBackdrop != null) darkBackdrop.SetActive(false);
         if (fragmentTitleText != null) fragmentTitleText.SetActive(false);
@@ -51,23 +58,18 @@ public class ChapterEnding : MonoBehaviour
         if (closingText != null) closingText.gameObject.SetActive(false);
     }
 
-    void OnEnable()  { ToyMinigameManager.OnMinigameCompleted += OnMinigameDone; }
-    void OnDisable() { ToyMinigameManager.OnMinigameCompleted -= OnMinigameDone; }
-
-    void OnMinigameDone(ToyItem item, ToySpot spot)
-    {
-        done.Add(spot);
-        if (done.Count >= minigamesNeeded && !endingStarted)
-        {
-            endingStarted = true;
-            StartCoroutine(EndingRoutine());
-        }
-    }
-
     void Update()
     {
         if (spinning && fragmentMesh != null)
             fragmentMesh.transform.Rotate(Vector3.up, fragmentSpinSpeed * Time.deltaTime, Space.Self);
+
+        if (endingStarted) return;
+
+        if (ScoreManager.Instance != null && ScoreManager.Instance.CurrentScore >= ringsNeeded && ringsNeeded > 0)
+        {
+            endingStarted = true;
+            StartCoroutine(EndingRoutine());
+        }
     }
 
     IEnumerator EndingRoutine()
@@ -75,7 +77,6 @@ public class ChapterEnding : MonoBehaviour
         var pm = FindObjectOfType<PlayerMovementCustom>();
         if (pm != null) pm.enabled = false;
 
-        // 1. Backdrop gelap + mesh fragment + tulisan
         if (darkBackdrop != null) darkBackdrop.SetActive(true);
         if (fragmentMesh != null) fragmentMesh.SetActive(true);
         if (fragmentTitleText != null) fragmentTitleText.SetActive(true);
@@ -84,7 +85,6 @@ public class ChapterEnding : MonoBehaviour
         GameDialog.Show(fragmentLine, fragmentShowDuration);
         yield return new WaitForSeconds(fragmentShowDuration + 1f);
 
-        // 2. Fade to black
         float t = 0f;
         while (t < fadeDuration)
         {
@@ -102,7 +102,6 @@ public class ChapterEnding : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        // 3. Closing
         if (closingText != null)
         {
             closingText.text = closingLine;
