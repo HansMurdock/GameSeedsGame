@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpPower;
+            Debug.Log($"JUMP TRIGGERED — isGrounded: {characterController.isGrounded}, moveDirection.y set to: {moveDirection.y}"); // TAMBAHAN DEBUG
         }
         else
         {
@@ -53,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
+
+        Debug.Log($"isGrounded: {characterController.isGrounded}, moveDirection.y: {moveDirection.y}, actual Y pos: {transform.position.y}"); // TAMBAHAN DEBUG
 
         if (Input.GetKey(KeyCode.R) && canMove)
         {
@@ -78,5 +81,11 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
-}
 
+    // Dipanggil pas keluar dari kendaraan, biar gak kebawa momentum vertikal lama
+    // (misal lagi jatuh/nge-jump pas naik kendaraan, terus nyangkut pas turun)
+    public void ResetVerticalVelocity()
+    {
+        moveDirection.y = 0f;
+    }
+}

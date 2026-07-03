@@ -5,6 +5,7 @@ public class BaseVehicle : MonoBehaviour
 {
     [Header("References")]
     public Transform seatPoint;
+    public Transform exitPoint; // taruh di luar collider kendaraan, misal di samping pintu
 
     [Header("UI")]
     public GameObject enterPrompt;

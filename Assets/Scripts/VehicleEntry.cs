@@ -13,17 +13,16 @@ public class VehicleEntry : MonoBehaviour
     private BaseVehicle currentVehicle;
     private bool isInVehicle = false;
     private CharacterController charController;
-    private PlayerMovement playerMovement;
+    private PlayerMovementCustom playerMovement; // <- diganti dari PlayerMovement ke PlayerMovementCustom
 
     void Start()
     {
         charController = GetComponent<CharacterController>();
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovementCustom>();
     }
 
     void Update()
     {
-        // Cari kendaraan terdekat
         Collider[] hits = Physics.OverlapSphere(transform.position, enterRadius);
         nearbyVehicle = null;
         foreach (var hit in hits)
@@ -32,11 +31,9 @@ public class VehicleEntry : MonoBehaviour
             if (v != null) { nearbyVehicle = v; break; }
         }
 
-        // Tampilkan/sembunyikan semua prompt
         foreach (var v in FindObjectsOfType<BaseVehicle>())
             v.ShowPrompt(v == nearbyVehicle && !isInVehicle);
 
-        // Naik/turun kendaraan
         if (Input.GetKeyDown(enterKey))
         {
             if (!isInVehicle && nearbyVehicle != null)
@@ -45,7 +42,6 @@ public class VehicleEntry : MonoBehaviour
                 Exit();
         }
 
-        // Ikutin posisi seat
         if (isInVehicle && currentVehicle != null)
         {
             transform.position = currentVehicle.seatPoint.position;
@@ -58,12 +54,12 @@ public class VehicleEntry : MonoBehaviour
         isInVehicle = true;
         currentVehicle = vehicle;
 
-        playerMovement.enabled = false;
+        playerMovement.enabled = false; // sekarang beneran matiin script yang aktif
         charController.enabled = false;
         GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
         playerCamera.gameObject.SetActive(false);
 
-        vehicle.SetOccupied(true); // ini yang nentuin: langsung nyalain vehicleCamera, atau reveal dulu
+        vehicle.SetOccupied(true);
     }
 
     void Exit()
@@ -72,8 +68,14 @@ public class VehicleEntry : MonoBehaviour
         currentVehicle.SetOccupied(false);
         if (currentVehicle.vehicleCamera != null)
             currentVehicle.vehicleCamera.gameObject.SetActive(false);
+
+        Transform exit = currentVehicle.exitPoint != null ? currentVehicle.exitPoint : currentVehicle.seatPoint;
+        transform.position = exit.position;
+        transform.rotation = Quaternion.Euler(0f, exit.eulerAngles.y, 0f);
+
         currentVehicle = null;
 
+        playerMovement.ResetVerticalVelocity(); // buang tumpukan velocity negatif sebelum re-enable
         playerMovement.enabled = true;
         charController.enabled = true;
         GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
