@@ -20,8 +20,11 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Pastikan yang menabrak adalah Player dan belum pernah terpicu
-        if (other.CompareTag("Player") && !sudahPernahMemicu)
+        // Cuma karakter player (punya PlayerMovementCustom) yang boleh micu.
+        // Kendaraan yang tag-nya "Player" gak akan micu dialog lagi.
+        if (other.GetComponent<PlayerMovementCustom>() == null) return;
+
+        if (!sudahPernahMemicu)
         {
             sudahPernahMemicu = true;
             StartCoroutine(TampilkanDialog());
